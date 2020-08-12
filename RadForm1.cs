@@ -162,7 +162,7 @@ namespace OptimizationImages
             //Si l'image destination n'existe pas
             if (File.Exists(destFile))
                 return;
-
+            
             var conversionFile = Path.ChangeExtension(destFile, ".jpg");
             Bitmap bitmap = new Bitmap(imgFile);
             //ouvrir l'image
@@ -187,8 +187,8 @@ namespace OptimizationImages
                 image.Write(conversionFile);
             }
 
-            //Renommer l'extension de l'image si elle est '.tif'
-            if (Path.GetExtension(imgFile) == ".tif")
+            //Renommer l'extension de l'image si elle n'est pas '.jpg'
+            if (Path.GetExtension(imgFile) != ".jpg")
             {
                 File.Move(conversionFile, destFile);
             }
